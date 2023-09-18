@@ -1,3 +1,4 @@
+import org.apache.commons.text.similarity.LevenshteinDistance;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,7 +16,7 @@ public class Main {
         CreateRandomWorlds.geriSayma();
         long endTime = System.currentTimeMillis() + 60000;
         int rightWord = 0;
-//        int rightChars =0;             ??????
+        int rightChars =0;
 
         while (System.currentTimeMillis() < endTime){
             String compWord = CreateRandomWorlds.randomIndex(randomWordsDinamicArray);
@@ -24,17 +25,14 @@ public class Main {
             String myWord = CreateRandomWorlds.writeWord();
             if (myWord.equals(compWord)){
                 rightWord++;
+                rightChars= myWord.length() +rightChars;
             }
-//            for (int i = 0; i < compWord.length(); i++) {            ?????
-//                if (myWord.charAt(i) == compWord.charAt(i)){
-//                    rightChars++;
-//                }
-//            }
+
         }
         System.out.println("Duz sozlerin sayi: " + rightWord);
         double wps = (double) rightWord / 60;
         System.out.println("Saniye basina dusen duz sozlerin sayi: " + wps);
-//        System.out.println("Duzgun yazilmis charlarin sayi: " + rightChars);       ?????
+        System.out.println("Duzgun yazilmis charlarin sayi: " + rightChars);
 
 
 
